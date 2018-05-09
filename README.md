@@ -22,24 +22,68 @@ Online version of [DeepCRISPR](http://www.deepcrispr.net/) is also maintained.
 3. Perform prediction.
 
 ![sgRNA Coding Schema](images/sgrna.png)
+
+### On-target prediction
+#### Digitalization
+Choose 4 channels for sequence-only prediction or 8 channels for full-featured prediction, according to the sgRNA Coding Schema above.
+
 ```python
-...
 import tensorflow as tf
-from deepcrispr import DCModel
-# Digitalization
-x_on_target = ...      # [batch_size, 8, 1, 23]
-x_sg_off_target = ...  # [batch_size, 8, 1, 23]
-x_ot_off_target = ...  # [batch_size, 8, 1, 23]
+from deepcrispr import DCModelOntar
 
-# Loading model
+seq_feature_only = False
+channels = 4 if seq_feature_only else 8
+x_on_target = ...     # [batch_size, channels, 1, 23]
+```
+
+#### Loading Model
+
+```python
 sess = tf.InteractiveSession()
-on_target_model_dir = '...'
-off_target_model_dir = '...'
-dcmodel = DCModel(sess, on_target_model_dir, off_target_model_dir)
+on_target_model_dir = '<model path>'
+# using regression model, otherwise classification model
+is_reg = True
+# using sequences feature only, otherwise sequences feature + selected epigenetic features
+seq_feature_only = False
+dcmodel = DCModelOntar(sess, on_target_model_dir, is_reg, seq_feature_only)
+```
 
-# Prediction
+#### Prediction
+
+```python
 predicted_on_target = dcmodel.ontar_predict(x_on_target)
+```
+
+
+### Off-target prediction
+#### Digitalization
+Off-target prediction supports full-featured prediction only.
+
+```python
+import tensorflow as tf
+from deepcrispr import DCModelOfftar
+
+channels = 8
+x_on_target = ...       # [batch_size, channels, 1, 23]
+x_sg_off_target = ...   # [batch_size, channels, 1, 23]
+x_ot_off_target = ...   # [batch_size, channels, 1, 23]
+```
+
+#### Loading Model
+
+```python
+sess = tf.InteractiveSession()
+off_target_model_dir = '<model path>'
+# using regression model, otherwise classification model
+is_reg = True
+dcmodel = DCModelOfftar(sess, off_target_model_dir, is_reg)
+```
+
+#### Prediction
+
+```python
 predicted_off_target = dcmodel.offtar_predict(x_sg_off_target, x_ot_off_target)
 ```
+
 
 ## Citation
