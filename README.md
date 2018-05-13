@@ -48,6 +48,12 @@ seq_feature_only = False
 dcmodel = DCModelOntar(sess, on_target_model_dir, is_reg, seq_feature_only)
 ```
 
+Model file name | Description
+-----------|------------
+ontar_ptaug_cnn.tar.gz | CNN-based on-target classification model with pre-training and data augmentation
+ontar_pt_cnn_reg.tar.gz | CNN-based on-target regression model with pre-training and data augmentation
+ontar_cnn_reg_seq.tar.gz | Sequence feature-only CNN-based on-target regression model with data augmentation
+
 #### Prediction
 
 ```python
@@ -79,6 +85,11 @@ is_reg = True
 dcmodel = DCModelOfftar(sess, off_target_model_dir, is_reg)
 ```
 
+Model file name | Description
+-----------|------------
+offtar_pt_cnn.tar.gz | CNN-based off-target classification model with pre-training
+ontar_pt_cnn_reg.tar.gz | CNN-based off-target regression model with pre-training
+
 #### Prediction
 
 ```python
@@ -87,3 +98,7 @@ predicted_off_target = dcmodel.offtar_predict(x_sg_off_target, x_ot_off_target)
 
 
 ## Citation
+Guohui Chuai, Qi Liu et al. *DeepCRISPR: optimized CRISPR guide RNA design by deep learning.* (**Manuscript submitted**)
+
+## Contacts
+18alexanderm117@tongji.edu.cn
