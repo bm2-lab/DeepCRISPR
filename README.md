@@ -98,7 +98,7 @@ predicted_off_target = dcmodel.offtar_predict(x_sg_off_target, x_ot_off_target)
 
 
 ## Citation
-Guohui Chuai, Qi Liu et al. *DeepCRISPR: optimized CRISPR guide RNA design by deep learning.* (**Manuscript submitted**)
+Guohui Chuai, Qi Liu et al. *DeepCRISPR: optimized CRISPR guide RNA design by deep learning. 2018* (**Manuscript submitted**)
 
 ## Contacts
-18alexanderm117@tongji.edu.cn
+18alexanderm117@tongji.edu.cn or qiliu@tongji.edu.cn
