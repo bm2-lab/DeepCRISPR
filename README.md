@@ -1,4 +1,5 @@
 # DeepCRISPR
+[![DOI](https://zenodo.org/badge/117238113.svg)](https://zenodo.org/badge/latestdoi/117238113)
 
 ## Introduction
 DeepCRISPR is a deep learning based prediction model for sgRNA on-target knockout
