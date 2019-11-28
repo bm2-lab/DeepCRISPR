@@ -17,6 +17,14 @@ Online version of [DeepCRISPR](http://www.deepcrispr.net/) is also maintained.
 * tensorflow == 1.3.0
 * sonnet == 1.9
 
+## Docker image
+```bash
+docker pull michaelchuai/deepcrispr:1.0
+```
+Note:
+1. Using the command above to attain DeepCRISPR image;
+2. The path of DeepCRISPR program and trained models in the image is `/root/DeepCRISPR`.
+
 ## Usage
 1. Digitalize sgRNA using the following **sgRNA Coding Schema**. Epigenetics features can be found in [ENCODE](https://www.encodeproject.org/).
 2. Load models from model directories (untar them first!) in `trained_models`. 
