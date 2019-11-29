@@ -19,7 +19,7 @@ Online version of [DeepCRISPR](http://www.deepcrispr.net/) is also maintained.
 
 ## Docker image
 ```bash
-docker pull michaelchuai/deepcrispr:1.0
+docker pull michaelchuai/deepcrispr:latest
 ```
 Note:
 1. Using the command above to attain DeepCRISPR image;
