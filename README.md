@@ -1,4 +1,5 @@
 # DeepCRISPR
+[![DOI](https://zenodo.org/badge/117238113.svg)](https://zenodo.org/badge/latestdoi/117238113)
 
 ## Introduction
 DeepCRISPR is a deep learning based prediction model for sgRNA on-target knockout
@@ -15,6 +16,14 @@ Online version of [DeepCRISPR](http://www.deepcrispr.net/) is also maintained.
 * python == 3.6
 * tensorflow == 1.3.0
 * sonnet == 1.9
+
+## Docker image
+```bash
+docker pull michaelchuai/deepcrispr:1.0
+```
+Note:
+1. Using the command above to attain DeepCRISPR image;
+2. The path of DeepCRISPR program and trained models in the image is `/root/DeepCRISPR`.
 
 ## Usage
 1. Digitalize sgRNA using the following **sgRNA Coding Schema**. Epigenetics features can be found in [ENCODE](https://www.encodeproject.org/).
@@ -48,6 +57,12 @@ seq_feature_only = False
 dcmodel = DCModelOntar(sess, on_target_model_dir, is_reg, seq_feature_only)
 ```
 
+Model file name | Description
+-----------|------------
+ontar_ptaug_cnn.tar.gz | CNN-based on-target classification model with pre-training and data augmentation
+ontar_pt_cnn_reg.tar.gz | CNN-based on-target regression model with pre-training and data augmentation
+ontar_cnn_reg_seq.tar.gz | Sequence feature-only CNN-based on-target regression model with data augmentation
+
 #### Prediction
 
 ```python
@@ -79,6 +94,11 @@ is_reg = True
 dcmodel = DCModelOfftar(sess, off_target_model_dir, is_reg)
 ```
 
+Model file name | Description
+-----------|------------
+offtar_pt_cnn.tar.gz | CNN-based off-target classification model with pre-training
+ontar_pt_cnn_reg.tar.gz | CNN-based off-target regression model with pre-training
+
 #### Prediction
 
 ```python
@@ -87,3 +107,7 @@ predicted_off_target = dcmodel.offtar_predict(x_sg_off_target, x_ot_off_target)
 
 
 ## Citation
+Guohui Chuai, Qi Liu et al. *DeepCRISPR: optimized CRISPR guide RNA design by deep learning. 2018* (**Manuscript submitted**)
+
+## Contacts
+18alexanderm117@tongji.edu.cn or qiliu@tongji.edu.cn
