@@ -31,12 +31,6 @@ class Sgt:
         self._cols = list(self._ori_df.columns)[-self._num_cols:]
         self._df = self._ori_df[self._cols]
 
-    def __init__(self, df, with_y=True):
-        self._with_y = with_y
-        self._num_cols = 2 if with_y else 1
-        self._cols = list(df.columns)[-self._num_cols:]
-        self._df = df[self._cols]
-
     @property
     def length(self):
         return len(self._df)
@@ -44,6 +38,7 @@ class Sgt:
     def get_dataset(self, x_dtype=np.float32, y_dtype=np.float32):
         x_seq = np.concatenate(list(map(get_seqcode, self._df[self._cols[0]])))
         x = x_seq.astype(dtype=x_dtype)
+        x = x.transpose(0, 2, 1)
         if self._with_y:
             y = np.array(self._df[self._cols[-1]]).astype(y_dtype)
             return x, y

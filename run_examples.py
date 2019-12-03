@@ -2,6 +2,16 @@ import numpy as np
 import tensorflow as tf
 import deepcrispr as dc
 
+## On-target Seq-only Regression Task
+file_path = 'examples/eg_reg_on_target_seq.rsgt'
+input_data = dc.Sgt(file_path, with_y=True)
+x, y = input_data.get_dataset()
+x = np.expand_dims(x, axis=2)  # shape(x) = [10, 4, 1, 23]
+sess = tf.InteractiveSession()
+on_target_model_dir = 'trained_models/ontar_cnn_reg_seq'
+dcmodel = dc.DCModelOntar(sess, on_target_model_dir, is_reg=True, seq_feature_only=True)
+predicted_on_target = dcmodel.ontar_predict(x)
+
 ## On-target Classification Task
 file_path = 'examples/eg_cls_on_target.episgt'
 input_data = dc.Episgt(file_path, num_epi_features=4, with_y=True)

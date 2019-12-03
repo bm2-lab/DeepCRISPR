@@ -5,6 +5,7 @@ File name | Task | Task type
 --------|--------|---------
 eg_cls_on_target.episgt | On-target | Classification
 eg_reg_on_target.repisgt | On-target | Regression
+eg_reg_on_target_seq.rsgt | On-target | Seq-Only Regression
 eg_cls_off_target.epiotrt | Off-target | Classification
 eg_reg_off_target.repiotrt | Off-target | Regression
 
@@ -14,6 +15,12 @@ eg_reg_off_target.repiotrt | Off-target | Regression
 Chrom|Start|End|Strand|Target Seq|CTCF|Dnase|H3K4me3|RRBS|Label
 ---|---|---|---|---|---|---|---|---|---
 chr17|33469132|33469154|-|CTTGCTCGCGCAGGACGAGGCGG|AAAAAAAAAAAAAAAAAAAAAAA|AAAAAAAAAAAAAAAAAAAAAAA|AAAAAAAAAAAAAAAAAAAAAAA|NNNNNNNNNNNNNNNNNNNNNNN|1
+
+## On-target Seq-Only fields
+
+Chrom|Start|End|Strand|Target Seq|Label
+---|---|---|---|---|---
+chr17|33469132|33469154|-|CTTGCTCGCGCAGGACGAGGCGG|1
 
 
 ## Off-target fields
