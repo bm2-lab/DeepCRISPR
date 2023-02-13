@@ -10,7 +10,6 @@ DeepCRISPR is a deep learning based prediction model for sgRNA on-target knockou
 Current version focuses on conventional NGG-based sgRNA design for SpCas9 in human species, for it is
  widely used in related experiments.
  
-Online version of [DeepCRISPR](http://www.deepcrispr.net/) is also maintained.
  
 ## Requirement
 * python == 3.6
